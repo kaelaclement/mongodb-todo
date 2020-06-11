@@ -1,0 +1,19 @@
+<h1>MongoDB ToDo List</h1>
+
+<form action="/" method="post">
+	<label for="todo">Todo: </label>
+	<input type="text" name="todo" id="todo">
+	<input type="submit" value="Add ToDo">
+</form>
+
+{{#if err}}
+{{err}}
+<br><br>
+{{/if}}
+{{#if items}}
+<ul>
+	{{#each items}}
+	<li>{{this}}</li>
+	{{/each}}
+</ul>
+{{/if}}
