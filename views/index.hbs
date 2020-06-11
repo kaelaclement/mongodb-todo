@@ -13,7 +13,13 @@
 {{#if items}}
 <ul>
 	{{#each items}}
-	<li>{{this}}</li>
+	<li>
+		{{this.description}}
+		<form action="/delete" method="post">
+			<input type="hidden" name="itemId" value={{this.id}}>
+			<input type="submit" value="Delete">
+		</form>
+	</li>
 	{{/each}}
 </ul>
 {{/if}}

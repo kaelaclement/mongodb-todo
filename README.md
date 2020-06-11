@@ -2,11 +2,10 @@
 
 ## Medium
 
-- [ ] Single user todo list (no signup/login)
 - [x] List all items
-- [ ] Add new items (form)
+- [x] Add new items (form)
 - [ ] Mark items as complete
-- [ ] Delete items
+- [x] Delete items
 - [ ] Custom messsage if list is empty
 
 ## Spicy
