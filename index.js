@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGOCONNECT, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGOCONNECT, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 const port = process.env.PORT || 3000;
 

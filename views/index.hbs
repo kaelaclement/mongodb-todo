@@ -11,15 +11,19 @@
 <br><br>
 {{/if}}
 {{#if items}}
-<ul>
-	{{#each items}}
-	<li>
-		{{this.description}}
-		<form action="/delete" method="post">
-			<input type="hidden" name="itemId" value={{this.id}}>
-			<input type="submit" value="Delete">
-		</form>
-	</li>
-	{{/each}}
+{{#each items}}
+<div {{#if this.completed}} class="completed" {{/if}}>
+	<p>{{this.description}}</p>
+	<form action="/complete" method="post">
+		<input type="hidden" name="completed" value={{this.completed}}>
+		<input type="hidden" name="itemId" value={{this.id}}>
+		<input type="submit" value="Toggle completed">
+	</form>
+	<form action="/delete" method="post">
+		<input type="hidden" name="itemId" value={{this.id}}>
+		<input type="submit" value="Delete">
+	</form>
+</div>
+{{/each}}
 </ul>
 {{/if}}

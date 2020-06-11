@@ -4,9 +4,9 @@
 
 - [x] List all items
 - [x] Add new items (form)
-- [ ] Mark items as complete
+- [x] Mark items as complete
 - [x] Delete items
-- [ ] Custom messsage if list is empty
+- [x] Custom messsage if list is empty
 
 ## Spicy
 
