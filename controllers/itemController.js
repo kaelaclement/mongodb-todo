@@ -9,6 +9,24 @@ exports.getItems = async (req, res) => {
 	}
 }
 
+exports.getRecent = async (req, res) => {
+	let items = await Item.getByMostRecent();
+	if (items.length == 0) {
+		res.render('index', { err: 'Add items to your list!' });
+	} else {
+		res.render('index', { items });
+	}
+}
+
+exports.getPriorities = async (req, res) => {
+	let items = await Item.getByPriority();
+	if (items.length == 0) {
+		res.render('index', { err: 'Add items to your list!' });
+	} else {
+		res.render('index', { items });
+	}
+}
+
 exports.addItem = (req, res) => {
 	// description: { type: String, required: true },
 	// colour: { type: String, required: true, default: 'white' },

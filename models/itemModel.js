@@ -24,7 +24,7 @@ item.statics.getByPriority = async function () {
 item.statics.getByMostRecent = async function () {
 	let itemsDocs = await this.find();
 	let items = itemsDocs.map(item => item.toObject());
-	items.sort((a, b) => a.dateAdded - b.dateAdded);
+	items.sort((a, b) => b.dateAdded - a.dateAdded);
 	return items;
 }
 

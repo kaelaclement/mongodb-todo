@@ -10,6 +10,6 @@
 
 ## Spicy
 
-- [ ] Allow user to order by date created
+- [x] Allow user to order by date created
 - [ ] Allow user to star/pin items to the top
 - [x] Allow user to colour code items
