@@ -2,11 +2,7 @@ const Item = require('../models/itemModel');
 
 exports.getItems = async (req, res) => {
 	let itemsDocs = await Item.find().catch(err => res.render('index', { err: 'Something went wrong' }));
-	// let items = itemsDocs.map(item => {
-	// 	return { id: item.id, description: item.description, completed: item.completed }
-	// })
 	let items = itemsDocs.map(item => item.toObject());
-	console.log(items);
 	if (items.length == 0) {
 		res.render('index', { err: 'Add items to your list!' });
 	} else {
