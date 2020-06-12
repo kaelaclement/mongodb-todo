@@ -12,4 +12,4 @@
 
 - [ ] Allow user to order by date created
 - [ ] Allow user to star/pin items to the top
-- [ ] Allow user to colour code items
+- [x] Allow user to colour code items

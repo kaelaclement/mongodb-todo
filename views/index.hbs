@@ -1,19 +1,36 @@
 <h1>MongoDB ToDo List</h1>
 
 <form action="/" method="post">
-	<label for="todo">Todo: </label>
-	<input type="text" name="todo" id="todo">
+	<label for="description">Todo: </label>
+	<input type="text" name="description" id="description">
+	<br>
+	<label for="colour">Background Colour? </label>
+	<select name="colour" id="colour">
+		<option value="white">None</option>
+		<option value="red">Red</option>
+		<option value="purple">Purple</option>
+		<option value="blue">Blue</option>
+	</select>
+	<br>
+	<label for="priority">Set priority? </label>
+	<select name="priority" id="priority">
+		<option value="10">Low</option>
+		<option value="5">Medium</option>
+		<option value="1">High</option>
+	</select>
+	<br>
 	<input type="submit" value="Add ToDo">
 </form>
 
 {{#if err}}
+<br><br>
 {{err}}
 <br><br>
 {{/if}}
 {{#if items}}
 {{#each items}}
-<div {{#if this.completed}} class="completed" {{/if}}>
-	<p>{{this.description}}</p>
+<div class={{this.colour}}>
+	<p class={{this.completed}}>{{this.description}}</p>
 	<form action="/complete" method="post">
 		<input type="hidden" name="completed" value={{this.completed}}>
 		<input type="hidden" name="itemId" value={{this.id}}>

@@ -1,8 +1,7 @@
 const Item = require('../models/itemModel');
 
 exports.getItems = async (req, res) => {
-	let itemsDocs = await Item.find().catch(err => res.render('index', { err: 'Something went wrong' }));
-	let items = itemsDocs.map(item => item.toObject());
+	let items = await Item.getByDefault();
 	if (items.length == 0) {
 		res.render('index', { err: 'Add items to your list!' });
 	} else {
@@ -11,8 +10,20 @@ exports.getItems = async (req, res) => {
 }
 
 exports.addItem = (req, res) => {
-	if (req.body.todo) {
-		Item.create({ description: req.body.todo })
+	// description: { type: String, required: true },
+	// colour: { type: String, required: true, default: 'white' },
+	// priority: { type: Number }
+	// completed: { type: Boolean, default: false },
+	// dateAdded: { type: Date, required: true },
+	let { description, colour, priority } = req.body;
+
+	if (description) {
+		Item.create({
+			description: description,
+			colour: colour,
+			priority: priority,
+			dateAdded: new Date()
+		})
 			.then(success => res.redirect('/'))
 			.catch(err => res.render('index', { err: 'Something went wrong' }));
 	} else {
@@ -28,7 +39,6 @@ exports.deleteItem = (req, res) => {
 
 exports.toggleCompleted = (req, res) => {
 	let newStatus = !(req.body.completed === 'true');
-	console.log(newStatus);
 	Item.findByIdAndUpdate(req.body.itemId, { completed: newStatus })
 		.then(success => res.redirect('/'))
 		.catch(err => res.render('index', { err: 'Something went wrong' }));

@@ -1,3 +1,15 @@
-.completed p {
+.true {
 	font-style: italic;
+}
+
+.red {
+	background-color: lightcoral;
+}
+
+.purple {
+	background-color: plum;
+}
+
+.blue {
+	background-color: skyblue;
 }
